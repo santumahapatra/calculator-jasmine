@@ -41,4 +41,16 @@ describe("Calculator", function() {
       expect(calculator.secondOperand).toBe(2);
     });
   });
+
+  describe("setting the Operator", function() {
+    it("should not set operator if not +, -, *, /, ^ or %", function () {
+      calculator.setOperator('(');
+      expect(calculator.operator).toBe(undefined);
+    });
+
+    xit("should set operator if +, -, *, /, ^ or %", function () {
+      calculator.setOperator('+');
+      expect(calculator.operator).toBe('+');
+    });
+  });
 });

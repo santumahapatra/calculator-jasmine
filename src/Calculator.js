@@ -1,5 +1,5 @@
 function Calculator() {
-  var firstOperand, secondOperand;
+  var firstOperand, secondOperand, operator;
 
   this.setFirstOperand = function(input) {
     if ( this.checkForNum(input) ) {
@@ -11,6 +11,10 @@ function Calculator() {
     if ( this.checkForNum(input) ) {
       this.secondOperand = input;
     }
+  };
+
+  this.setOperator = function(input) {
+    
   };
 
   this.checkForNum = function(input){
