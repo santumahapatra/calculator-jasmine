@@ -2,8 +2,12 @@ function Calculator() {
   var firstOperand;
 
   this.setFirstOperand = function(input) {
-    if ( typeof(input) === 'number' ) {
+    if ( this.checkForNum(input) ) {
       this.firstOperand = input;
     }
+  };
+
+  this.checkForNum = function(input){
+    return typeof(input) === 'number';
   };
 }
