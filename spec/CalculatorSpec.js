@@ -48,9 +48,31 @@ describe("Calculator", function() {
       expect(calculator.operator).toBe(undefined);
     });
 
-    xit("should set operator if +, -, *, /, ^ or %", function () {
+    it("should set operator if +, -, *, /, ^ or %", function () {
       calculator.setOperator('+');
       expect(calculator.operator).toBe('+');
+    });
+  });
+
+  describe("calculates", function() {
+    it("the correct output on correct input", function(){
+      calculator.setFirstOperand(2);
+      calculator.setSecondOperand(4);
+      calculator.setOperator('+');
+      expect(calculator.calculate()).toBe(4);
+    });
+
+    it("the correct output on correct input", function(){
+      calculator.setFirstOperand(2);
+      calculator.setSecondOperand(4);
+      calculator.setOperator('/');
+      expect(calculator.calculate()).toBe(0.5);
+    });
+
+    xit("throws error on incorrect input", function(){
+      calculator.setFirstOperand("a");
+      calculator.setSecondOperand(4);
+      calculator.setOperator('+');
     });
   });
 });
