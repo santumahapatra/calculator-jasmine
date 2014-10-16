@@ -22,7 +22,7 @@ function Calculator() {
     var second = this.setOperand(secondOperand);
     var sanitizedOperator = this.setOperator(operator);
 
-    if ( first !== null && second !== null ) {
+    if ( first !== null && second !== null && sanitizedOperator !== null) {
       return this.math_it_up[sanitizedOperator](first, second);
     }
     else {

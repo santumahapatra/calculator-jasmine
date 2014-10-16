@@ -69,6 +69,8 @@ describe("Calculator", function() {
 
     it("throws error on incorrect input", function(){
       expect(calculator.calculate("a", 4, '/')).toBe(null);
+      expect(calculator.calculate(2, 4, '8')).toBe(null);
+      expect(calculator.calculate(2, '8', '-')).toBe(null);
     });
   });
 });
