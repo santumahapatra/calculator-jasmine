@@ -28,7 +28,7 @@ function Calculator() {
     else {
       return null;
     }
-  }
+  };
 
   this.math_it_up = {
     '+': function (x, y) {return x + y},
@@ -37,4 +37,4 @@ function Calculator() {
     '/': function (x, y) {return x / y},
     '%': function (x, y) {return x % y}
   };
-}
+};
