@@ -5,16 +5,31 @@
     <title>Calculator</title>
 
     <!-- include source files here... -->
-    <script type="text/javascript" src="src/Calculator.js"></script>
-    <script type="text/javascript" src="src/Controller.js"></script>
-    <link rel="stylesheet" type="text/css" href="/src/calculator.css" />
+    <link rel="stylesheet" type="text/css" href="src/calculator.css" />
   </head>
 
   <body>
-    <p>First operand : <input type="text" name="operand1">
-    <span class="error-msg operand1"></span></p>
-    <p>Second operand : <input type="text" name="operand2"><span class="error-msg operand2">hello</span></p>
-    <p>Operator : <input type="text" name="operator"><span class="error-msg operator"></span></p>
-    <p>Output Value:<input type="text" value="Answer" class="" readonly></p>
+    <p>
+      First operand : 
+      <input id="operand1" type="text" name="operand1">
+      <span class="error-msg error-operand1 hide">Wrong Format: Please input a number</span>
+    </p>
+    <p>
+      Second operand : 
+      <input id="operand2" type="text" name="operand2">
+      <span class="error-msg error-operand2 hide">Wrong Format: Please input a number</span>
+    </p>
+    <p>
+      Operator : 
+      <input id="operator" type="text" name="operator">
+      <span class="error-msg error-operator hide">Wrong Operator: Please enter +, -, *, / or %.</span>
+    </p>
+    <p>
+      Output Value:
+      <input type="text" value="Answer" id="output" readonly>
+    </p>
+
+    <script type="text/javascript" src="src/Calculator.js"></script>
+    <script type="text/javascript" src="src/Controller.js"></script>
   </body>
 </html>
