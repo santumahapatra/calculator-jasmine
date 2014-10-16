@@ -18,62 +18,58 @@ describe("Calculator", function() {
     });
   });
 
-  describe("on the First Operand", function() {
+  describe("sets the given input as Operand", function() {
     it("should not set operand if it has wrong format", function () {
-      calculator.setFirstOperand("a");
-      expect(calculator.firstOperand).toBe(undefined);
+      expect(calculator.setOperand("a")).toBe(null);
     });
 
     it("sets the operand if operand has integer or float format", function () {
-      calculator.setFirstOperand(2);
-      expect(calculator.firstOperand).toBe(2);
+      expect(calculator.setOperand(2)).toBe(2);
     });
   });
 
-  describe("on the Second Operand", function() {
-    it("should not set operand if it has wrong format", function () {
-      calculator.setSecondOperand("a");
-      expect(calculator.secondOperand).toBe(undefined);
+  describe("on checking for operator", function(){
+    it("should return true for +, -, /, * or ^ types", function(){
+      expect(calculator.checkOperator('+')).toBe(true);
+      expect(calculator.checkOperator('-')).toBe(true);
+      expect(calculator.checkOperator('/')).toBe(true);
+      expect(calculator.checkOperator('*')).toBe(true);
+      expect(calculator.checkOperator('^')).toBe(true);
     });
 
-    it("sets the operand if operand has integer or float format", function () {
-      calculator.setSecondOperand(2);
-      expect(calculator.secondOperand).toBe(2);
+    it("should return false for other types", function(){
+      expect(calculator.checkOperator("a")).toBe(false);
+      expect(calculator.checkOperator(['a'])).toBe(false);
+      expect(calculator.checkOperator({})).toBe(false);
     });
   });
 
   describe("setting the Operator", function() {
     it("should not set operator if not +, -, *, /, ^ or %", function () {
-      calculator.setOperator('(');
-      expect(calculator.operator).toBe(undefined);
+      expect(calculator.setOperator('(')).toBe(null);
     });
 
     it("should set operator if +, -, *, /, ^ or %", function () {
-      calculator.setOperator('+');
-      expect(calculator.operator).toBe('+');
+      expect(calculator.setOperator('+')).toBe('+');
+      expect(calculator.setOperator('-')).toBe('-');
+      expect(calculator.setOperator('*')).toBe('*');
+      expect(calculator.setOperator('/')).toBe('/');
+      expect(calculator.setOperator('^')).toBe('^');
     });
   });
 
   describe("calculates", function() {
     it("the correct output on correct input", function(){
-      calculator.firstOperand = 2;
-      calculator.secondOperand = 4;
-      calculator.operator = '+';
-      expect(calculator.calculate()).toBe(6);
+      expect(calculator.calculate(2, 4, '+')).toBe(6);
+      expect(calculator.calculate(2, 4, '*')).toBe(8);
     });
 
     it("the correct output on correct input", function(){
-      calculator.firstOperand = 2;
-      calculator.secondOperand = 4;
-      calculator.operator = '/';
-      expect(calculator.calculate()).toBe(0.5);
+      expect(calculator.calculate(2, 4, '/')).toBe(0.5);
     });
 
     it("throws error on incorrect input", function(){
-      calculator.firstOperand = "a";
-      calculator.secondOperand = 4;
-      calculator.operator = '+';
-      expect(calculator.calculate()).toBe("Error");
+      expect(calculator.calculate("a", 4, '/')).toBe(null);
     });
   });
 });

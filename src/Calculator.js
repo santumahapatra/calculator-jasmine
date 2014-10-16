@@ -1,29 +1,23 @@
 function Calculator() {
-  var firstOperand, secondOperand, operator;
 
-  this.setFirstOperand = function(input) {
-    if ( this.checkForNum(input) ) {
-      this.firstOperand = input;
-    }
-  };
-
-  this.setSecondOperand = function(input) {
-    if ( this.checkForNum(input) ) {
-      this.secondOperand = input;
-    }
+  this.setOperand = function(input) {
+    return this.checkForNum(input) ? input : null;
   };
 
   this.setOperator = function(input) {
-    if ( input !== null && input.match(/^[+-/^\*]$/) ) {
-      this.operator = input;
-    }   
+    return this.checkOperator(input) ? input : null;
   };
+
+  this.checkOperator = function(operator){
+    return (typeof(operator) === "string" && operator !== null && operator.match(/^[+-/^\*]$/) !== null );
+  };
+
 
   this.checkForNum = function(input){
     return typeof(input) === 'number';
   };
 
-  this.calculate = function() {
+  this.calculate = function(firstOperand, secondOperand, operator) {
     var math_it_up = {
       '+': function (x, y) {return x + y},
       '-': function (x, y) {return x - y},
@@ -32,6 +26,15 @@ function Calculator() {
       '^': function (x, y) {return x ^ y}
     };
 
-    return math_it_up[this.operator](this.firstOperand, this.secondOperand);
+    var first = this.setOperand(firstOperand);
+    var second = this.setOperand(secondOperand);
+    var sanitizedOperator = this.setOperator(operator);
+
+    if ( first !== null && second !== null ) {
+      return math_it_up[sanitizedOperator](first, second);
+    }
+    else {
+      return null;
+    }
   }
 }
