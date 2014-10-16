@@ -24,14 +24,14 @@ function Calculator() {
   };
 
   this.calculate = function() {
-    /*var math_it_up = {
+    var math_it_up = {
       '+': function (x, y) {return x + y},
       '-': function (x, y) {return x - y},
       '*': function (x, y) {return x * y},
       '/': function (x, y) {return x / y},
       '^': function (x, y) {return x ^ y}
-    };*/
+    };
 
-    //math_it_up[this.operator][](this.firstOperand, this.secondOperand);
+    return math_it_up[this.operator](this.firstOperand, this.secondOperand);
   }
 }

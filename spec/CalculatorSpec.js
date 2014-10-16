@@ -56,23 +56,24 @@ describe("Calculator", function() {
 
   describe("calculates", function() {
     it("the correct output on correct input", function(){
-      calculator.setFirstOperand(2);
-      calculator.setSecondOperand(4);
-      calculator.setOperator('+');
-      expect(calculator.calculate()).toBe(4);
+      calculator.firstOperand = 2;
+      calculator.secondOperand = 4;
+      calculator.operator = '+';
+      expect(calculator.calculate()).toBe(6);
     });
 
     it("the correct output on correct input", function(){
-      calculator.setFirstOperand(2);
-      calculator.setSecondOperand(4);
-      calculator.setOperator('/');
+      calculator.firstOperand = 2;
+      calculator.secondOperand = 4;
+      calculator.operator = '/';
       expect(calculator.calculate()).toBe(0.5);
     });
 
-    xit("throws error on incorrect input", function(){
-      calculator.setFirstOperand("a");
-      calculator.setSecondOperand(4);
-      calculator.setOperator('+');
+    it("throws error on incorrect input", function(){
+      calculator.firstOperand = "a";
+      calculator.secondOperand = 4;
+      calculator.operator = '+';
+      expect(calculator.calculate()).toBe("Error");
     });
   });
 });
