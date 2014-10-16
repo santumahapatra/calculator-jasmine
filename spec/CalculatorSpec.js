@@ -29,12 +29,12 @@ describe("Calculator", function() {
   });
 
   describe("on checking for operator", function(){
-    it("should return true for +, -, /, * or ^ types", function(){
+    it("should return true for +, -, /, * or % types", function(){
       expect(calculator.checkOperator('+')).toBe(true);
       expect(calculator.checkOperator('-')).toBe(true);
       expect(calculator.checkOperator('/')).toBe(true);
       expect(calculator.checkOperator('*')).toBe(true);
-      expect(calculator.checkOperator('^')).toBe(true);
+      expect(calculator.checkOperator('%')).toBe(true);
     });
 
     it("should return false for other types", function(){
@@ -45,16 +45,16 @@ describe("Calculator", function() {
   });
 
   describe("setting the Operator", function() {
-    it("should not set operator if not +, -, *, /, ^ or %", function () {
+    it("should not set operator if not +, -, *, /, % or %", function () {
       expect(calculator.setOperator('(')).toBe(null);
     });
 
-    it("should set operator if +, -, *, /, ^ or %", function () {
+    it("should set operator if +, -, *, /, % or %", function () {
       expect(calculator.setOperator('+')).toBe('+');
       expect(calculator.setOperator('-')).toBe('-');
       expect(calculator.setOperator('*')).toBe('*');
       expect(calculator.setOperator('/')).toBe('/');
-      expect(calculator.setOperator('^')).toBe('^');
+      expect(calculator.setOperator('%')).toBe('%');
     });
   });
 
@@ -62,10 +62,9 @@ describe("Calculator", function() {
     it("the correct output on correct input", function(){
       expect(calculator.calculate(2, 4, '+')).toBe(6);
       expect(calculator.calculate(2, 4, '*')).toBe(8);
-    });
-
-    it("the correct output on correct input", function(){
       expect(calculator.calculate(2, 4, '/')).toBe(0.5);
+      expect(calculator.calculate(2, 4, '-')).toBe(-2);
+      expect(calculator.calculate(2, 4, '%')).toBe(2);
     });
 
     it("throws error on incorrect input", function(){

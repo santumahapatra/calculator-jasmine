@@ -9,7 +9,7 @@ function Calculator() {
   };
 
   this.checkOperator = function(operator){
-    return (typeof(operator) === "string" && operator !== null && operator.match(/^[+-/^\*]$/) !== null );
+    return (typeof(operator) === "string" && operator !== null && operator.match(/^[+-/\%\*]$/) !== null );
   };
 
 
@@ -18,23 +18,23 @@ function Calculator() {
   };
 
   this.calculate = function(firstOperand, secondOperand, operator) {
-    var math_it_up = {
-      '+': function (x, y) {return x + y},
-      '-': function (x, y) {return x - y},
-      '*': function (x, y) {return x * y},
-      '/': function (x, y) {return x / y},
-      '^': function (x, y) {return x ^ y}
-    };
-
     var first = this.setOperand(firstOperand);
     var second = this.setOperand(secondOperand);
     var sanitizedOperator = this.setOperator(operator);
 
     if ( first !== null && second !== null ) {
-      return math_it_up[sanitizedOperator](first, second);
+      return this.math_it_up[sanitizedOperator](first, second);
     }
     else {
       return null;
     }
   }
+
+  this.math_it_up = {
+    '+': function (x, y) {return x + y},
+    '-': function (x, y) {return x - y},
+    '*': function (x, y) {return x * y},
+    '/': function (x, y) {return x / y},
+    '%': function (x, y) {return x % y}
+  };
 }
