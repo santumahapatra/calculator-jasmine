@@ -1,26 +1,44 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Calculator Tests - Jasmine Spec Runner v2.0.3</title>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Calculator Tests - Jasmine Spec Runner v2.0.3</title>
 
-  <link rel="shortcut icon" type="image/png" href="lib/jasmine-2.0.3/jasmine_favicon.png">
-  <link rel="stylesheet" type="text/css" href="lib/jasmine-2.0.3/jasmine.css">
+    <link rel="shortcut icon" type="image/png" href="lib/jasmine-2.0.3/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="lib/jasmine-2.0.3/jasmine.css">
 
-  <script type="text/javascript" src="lib/jasmine-2.0.3/jasmine.js"></script>
-  <script type="text/javascript" src="lib/jasmine-2.0.3/jasmine-html.js"></script>
-  <script type="text/javascript" src="lib/jasmine-2.0.3/boot.js"></script>
+    <script type="text/javascript" src="lib/jasmine-2.0.3/jasmine.js"></script>
+    <script type="text/javascript" src="lib/jasmine-2.0.3/jasmine-html.js"></script>
+    <script type="text/javascript" src="lib/jasmine-2.0.3/boot.js"></script>
+  </head>
 
-  <!-- include source files here... -->
-  <script type="text/javascript" src="src/Calculator.js"></script>
-  <script type="text/javascript" src="src/Controller.js"></script>
+  <body>
+    <p>
+      First operand:
+      <input id="operand1" class="input" type="text" name="operand1">
+      <span class="error-msg error-operand1 hide">Wrong Format: Please input a number</span>
+    </p>
+    <p>
+      Second operand:
+      <input id="operand2" class="input" type="text" name="operand2">
+      <span class="error-msg error-operand2 hide">Wrong Format: Please input a number</span>
+    </p>
+    <p>
+      Operator:
+      <input id="operator" class="input" type="text" name="operator">
+      <span class="error-msg error-operator hide">Wrong Operator: Please enter +, -, *, / or %.</span>
+    </p>
+    <p>
+      Output Value:
+      <input type="text" value="Answer" id="output" readonly>
+    </p>
 
-  <!-- include spec files here... -->
-  <script type="text/javascript" src="spec/CalculatorSpec.js"></script>
-  <script type="text/javascript" src="spec/ControllerSpec.js"></script>
+    <!-- include source files here... -->
+    <script type="text/javascript" src="src/Calculator.js"></script>
+    <script type="text/javascript" src="src/Controller.js"></script>
 
-</head>
-
-<body>
-</body>
+    <!-- include spec files here... -->
+    <script type="text/javascript" src="spec/CalculatorSpec.js"></script>
+    <script type="text/javascript" src="spec/ControllerSpec.js"></script>
+  </body>
 </html>
