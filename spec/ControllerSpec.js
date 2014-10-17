@@ -43,53 +43,43 @@ describe("Controller", function(){
       var errorElement2 = document.getElementsByClassName('error-operand2')[0];
 
       element1.value = '23';
-      element2.focus();
       expect(controller.checkInput('operand1')).toBe(23);
       expect(errorElement1.className.contains('hide')).toBe(true);
 
       element2.value = '3.5';
-      element1.focus();
       expect(controller.checkInput('operand2')).toBe(3.5);
       expect(errorElement2.className.contains('hide')).toBe(true);
 
       element1.value = 'a';
-      element2.focus();
       expect(controller.checkInput('operand1')).toBe(null);
       expect(errorElement1.className.contains('hide')).toBe(false);
     });
 
     it("validates and returns operator or returns null", function(){
       var element = document.getElementById('operator');
-      var element1 = document.getElementById('operand1');
       var errorElement = document.getElementsByClassName('error-operator')[0];
 
       element.value = '+';
-      element1.focus();
       expect(controller.checkInput('operator')).toBe('+');
       expect(errorElement.className.contains('hide')).toBe(true);
 
       element.value = '-';
-      element1.focus();
       expect(controller.checkInput('operator')).toBe('-');
       expect(errorElement.className.contains('hide')).toBe(true);
 
       element.value = '*';
-      element1.focus();
       expect(controller.checkInput('operator')).toBe('*');
       expect(errorElement.className.contains('hide')).toBe(true);
 
       element.value = '/';
-      element1.focus();
       expect(controller.checkInput('operator')).toBe('/');
       expect(errorElement.className.contains('hide')).toBe(true);
 
       element.value = '%';
-      element1.focus();
       expect(controller.checkInput('operator')).toBe('%');
       expect(errorElement.className.contains('hide')).toBe(true);
 
       element.value = 'a';
-      element1.focus();
       expect(controller.checkInput('operator')).toBe(null);
       expect(errorElement.className.contains('hide')).toBe(false);
     });
