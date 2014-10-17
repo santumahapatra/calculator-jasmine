@@ -68,6 +68,7 @@ function Controller() {
       inputs[i].onblur = this.puppeteer;
       inputs[i].onfocus = this.puppeteer;
       inputs[i].onchange = this.puppeteer;
+      inputs[i].oninput = this.puppeteer;
     }
   };
 
